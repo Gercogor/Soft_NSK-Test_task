@@ -1,0 +1,47 @@
+//colors
+$black: black;
+$white: white;
+$blue: #42A9ED;
+$darkblue: #286690;
+
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700;800&family=Raleway:wght@800&display=swap');
+
+$font-color-black: $black;
+$font-color-blue: $blue;
+$font-color-white: $white;
+$font-color-hover: $blue;
+$font-color-lightgray: #C3C3C3;
+$font-color-darkgray: #6F6D7B;
+
+
+$font-family-logo: 'Raleway', sans-serif;
+$font-family-main: 'Lato', sans-serif;
+
+@mixin font-style($font-size, $font-weight, $color: $white){
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $color;
+}
+
+//bg colors
+$header-bg-color: rgba(16, 16, 29, 0.9);
+$main-down-bg-color: #272733;;
+$footer-bg-color: #3D4050;
+$burger-menu-bg:#272733;
+
+//component colors
+$vl-color: #C3C3C3;
+$button-bg-blue: $blue;
+$button-bg-white: $white;
+$button-border-white: $white;
+$button-border-gray: #6F6D7B;
+$image-border-darkblue: $darkblue;
+$input-range-slider-border: $darkblue;
+$input-range-bg: rgba(255,255,255,0.7);
+$input-text-bg: rgba(255,255,255,0.85);
+$input-select-text-bg: rgb(224, 224, 224);
+$input-submit-bg: #3E9CDC;
+$input-submit-bg-hover: $darkblue;
+$scrollbar-track: #3D4050;
+$scrollbar-thumb: #3E9CDC;

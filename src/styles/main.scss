@@ -1,0 +1,538 @@
+@import './vars';
+
+.main{
+    &__about {
+        &_bg{
+            margin-top: -100px;
+            background-image: url('../images/main_bg_up.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position:center;
+        }
+        max-width: 1120px;
+        margin: 0 auto;
+        &-title {
+            padding-top: 200px;
+            max-width: 780px;
+            @include font-style(48px, 700, black);
+            text-transform: uppercase;
+            overflow-wrap: normal;
+            &_blue {
+                color: $font-color-blue
+            }
+        }
+        &-description {
+            @include font-style(20px, 700, black);
+            margin-top: 80px;
+        }
+        &-list{
+            @include font-style(20px, 400, black);
+            margin-top: 10px;
+            list-style-type: none;
+            padding-left: 10px;
+            li::before {
+                content: '-';
+                margin-right: 11px;
+            }
+        }
+        &-buttons {
+            margin-top: 80px;
+            padding-bottom: 240px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 30px;
+            button {
+                width: 183px;
+                padding: 15px 10px;
+                @include font-style(13px, 400, black);
+                text-transform: uppercase;
+                cursor: pointer;
+                &:first-child {
+                    background: $button-bg-blue;
+                    border: 1px solid $button-border-white;
+                    border-radius: 4px;
+                }
+                &:last-child {
+                    background: $button-bg-white;
+                    border: 1px solid $button-border-gray;
+                    border-radius: 4px;
+                }
+
+            }
+        }
+    }
+    &__order {
+        &_bg{
+            background-image: url('../images/mian_bg-down.svg');
+            background-color: $main-down-bg-color;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        max-width: 1120px;
+        margin: 0 auto;
+        &-description{
+            text-align: center;
+        }
+        &-title {
+            text-transform: uppercase;
+            padding-top: 160px;
+            @include font-style(36px, 800);
+            &_blue {
+                color: $font-color-blue
+            }
+        }
+        &-subtitle {
+            @include font-style(18px, 400, $font-color-darkgray);
+            margin-top: 30px;
+        }
+        &-schema {
+            display: flex;
+            margin-top: 80px;
+            justify-content: space-between;
+            &-block {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 188px;
+                text-align: center;
+                position: relative;
+                margin-top: 20px;
+                &::before{
+                    content: url('../images/dots.svg');
+                    position: absolute;
+                    right: -40%;
+                    top:40px;
+                }
+                &:last-child::before {
+                    content: '';
+                }
+            }
+        }
+        &-image{
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border: 5px solid $image-border-darkblue;
+            border-radius: 50%;
+            background-color: $blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &-text {
+            margin-top: 20px;
+            overflow-wrap: break-word;
+            @include font-style(16px, 400)
+        }
+        &-form {
+            margin-top: 80px;
+        }
+    }
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    height: 270px;
+    margin: 0 auto;
+    padding: 80px 0 150px 0;
+    &__select {
+        &-wrapper {
+            width: 370px;
+            position: relative;
+        }
+        &-button {
+            box-sizing: border-box;
+            height: 48px;
+            background-color: $input-select-text-bg;
+            padding: 0 20px;
+            border-radius: 3px;
+            @include font-style(18px, 400, $font-color-black);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            overflow: hidden;
+            span {
+                width: 340px;
+            }
+            i {
+                width: 8px;
+                height: 8px;
+                border-right: 2px solid $black;
+                border-top: 2px solid $black;
+                transform: rotate(135deg);
+                transition: transform 0.15s linear;
+            }
+        }
+        &-content {
+            position: absolute;
+            display: none;
+            background-color: $input-select-text-bg;
+            padding: 5px 5px 10px 20px;
+            margin-top: 3px;
+            border-radius: 3px;
+            z-index: 10;
+        }
+        &-options {
+            @include font-style(18px, 400, $font-color-black);
+            word-wrap: normal;
+            height: 150px;
+            overflow-y: auto;
+            padding: 0;
+            scrollbar-width: auto;
+            scrollbar-color: $scrollbar-thumb;
+            &::-webkit-scrollbar{
+                width: 7px;
+            }
+            &::-webkit-scrollbar-track{
+                background: $scrollbar-track;
+                border-radius: 3px;
+            }
+            &::-webkit-scrollbar-thumb{
+                background: $scrollbar-thumb;
+                border-radius: 3px;
+            }
+            li{
+                list-style: none;
+                margin-right: 10px;
+                padding: 8px 4px;
+                &:hover {
+                    cursor: pointer;
+                    color: $blue;
+                }
+            }
+        }
+    }
+    &__input {
+        box-sizing: border-box;
+        width: 370px;
+        height: 48px;
+        &:focus {
+            outline: 2px solid $blue;
+        }
+        &-range{
+            &-wrapper {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+                width: 770px;
+                border: none;
+            }
+            &-text{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom:8px;
+                @include font-style(18px, 400)
+            }
+        }
+        &-file {
+            position: relative;
+        }
+
+        &_text {
+            padding: 10px;
+            background: $input-text-bg;
+            border: 1px solid $white;
+            border-radius: 3px;
+            @include font-style(18px, 400, $black);
+        }
+        &_submit {
+            background: $input-submit-bg;
+            border: 1px solid $white;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            @include font-style(15px, 400);
+            &:hover {
+                background: $input-submit-bg-hover;
+            }
+        }
+    }
+
+    //start css for range input
+    input[type="range"] {
+        -webkit-appearance: none;
+        width: 770px;
+        height: 6px;
+        background: $input-range-bg;
+        border: 1px solid $white;
+        border-radius: 5px;
+    }
+      
+    /* Input Thumb */
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: $blue;
+        border: 3px solid $input-range-slider-border;
+        cursor: ew-resize;
+    }
+    
+    input[type="range"]::-moz-range-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: $blue;
+        border: 3px solid $input-range-slider-border;
+        cursor: ew-resize;
+    }
+    
+    input[type="range"]::-ms-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: $blue;
+        border: 3px solid $input-range-slider-border;
+        cursor: ew-resize;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+        background: $darkblue;
+    }
+    
+    input[type="range"]::-moz-range-thumb:hover {
+        background: $darkblue;
+    }
+    
+    input[type="range"]::-ms-thumb:hover {
+     background: $darkblue;
+    }
+    
+    /* Input Track */
+    input[type=range]::-webkit-slider-runnable-track  {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+    
+    input[type=range]::-moz-range-track {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+    
+    input[type="range"]::-ms-track {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+    //end css for range input
+
+    //start css for file input
+    &__input-file{
+        input[type=file] {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+        /* Focus */
+        input[type=file]:focus + span {
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+        /* Hover/active */
+        &:hover span {
+        	background-color: $blue;
+        }
+        &:active span {
+            background-color: $blue;
+        }
+        /* Disabled */
+        input[type=file]:disabled + span {
+        	background-color: #eee;
+        }
+    }
+    //end css for file input
+    &__output_file{
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        outline: none;
+        width: 370px;
+        height: 48px;
+        text-decoration: none;
+        @include font-style(16px,400,$black);
+        background-color: $white;
+        padding: 10px 20px;
+        margin: 0;
+        transition: background-color 0.2s;
+        overflow: hidden;
+        border: 2px solid $blue;
+        border-radius: 3px;
+        &::before {
+            content: url('../images/addFile.svg');
+            padding: 4px 10px 0 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1119px){
+    .main {
+        &__order,
+        &__about{
+            padding: 0 20px;
+        }
+        &__order{
+            &-schema {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                &-block {
+                    width: calc(100vw / 5 - 20px);
+                    &::before{
+                        top: 35px;
+                    }
+                }
+            }
+            &-image{
+                box-sizing: border-box;
+                width: 90px;
+                height: 90px;
+                border: 5px solid $image-border-darkblue;
+                border-radius: 50%;
+                background-color: $blue;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            &-text {
+                width: calc(100vw / 5 - 10px);
+                margin-top: 20px;
+                overflow-wrap: break-word;
+                @include font-style(16px, 400)
+            }
+        }
+
+    }
+    .form {
+        input[type="range"] {
+            width: 370px;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        &__input {
+            &-range{
+                &-wrapper {
+                    width: 370px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 949px){
+    .main__order{
+        &-schema {
+            &-block {
+                &::before{
+                    content: '';
+                }
+            }
+        }
+        &-image{
+            box-sizing: border-box;
+            width: 90px;
+            height: 90px;
+            border: 5px solid $image-border-darkblue;
+            border-radius: 50%;
+            background-color: $blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &-text {
+            width: calc(100vw / 5 - 10px);
+            margin-top: 20px;
+            overflow-wrap: break-word;
+            @include font-style(16px, 400)
+        }
+        
+    }
+    .form {
+        padding: 80px 0 80px 0;
+    }
+
+}
+
+@media screen and (max-width: 767px){
+
+    .main {
+        &__order{
+            &-schema {
+                flex-wrap: wrap;
+                justify-content: center;
+                &-block{
+                    width: calc(100vw / 2 - 40px);
+                }
+            }
+            &-text {
+                width: calc(100vw / 2 - 40px);
+            }
+        }
+    }
+
+    .form {
+        height: 500px;
+        &__input {
+            width: calc(100vw - 40px);
+            &-file {
+                padding-top: 10px;
+            }
+        }
+        input[type="range"] {
+            width: calc(100vw - 40px);
+        }
+        &__output_file {
+            width: calc(100vw - 40px);
+        }
+    }
+
+}
+
+@media screen and (max-width: 560px){
+    .main {
+        &__about {
+            &-title {
+                font-size: 32px;
+                word-wrap: break-word;
+            }
+            &-description,
+            &-list {
+                font-size: 18px;
+            }
+            &-buttons {
+                padding-bottom: 120px;
+            }
+        }
+        &__order{
+            &-title {
+                padding-top: 100px;
+            }
+            &-schema {
+                margin-top: 40px;
+                &-block{
+                    width: calc(100vw - 20px);
+                }
+            }
+            &-text {
+                width: calc(100vw - 40px);
+            }
+        }
+    }
+}

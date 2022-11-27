@@ -1,0 +1,139 @@
+@import './vars';
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: $header-bg-color;
+
+    .navigation {
+        height: 100px;
+        max-width: 1120px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $font-color-white;
+        text-transform: uppercase;
+        &__logo {
+            @include font-style(28px, 800);
+            font-family: $font-family-logo;
+            &_blue {
+                color: $font-color-blue;
+            }
+        }
+        &__buttons {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            max-width: 435px;
+            @include font-style(13px,600);
+            line-height: 16px;
+            max-width: 480px;
+            li {
+                padding-right: 60px;
+                &:last-child {
+                    padding-right: 0;
+                }
+                a:hover{
+                    color: $font-color-hover;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1119px){
+    .header {
+        .navigation {
+            padding: 0 20px;
+            &__buttons {
+                li {
+                    padding-right: 30px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px){
+    .header {
+        .burger{
+            position: relative;
+            &__header {
+                position: relative;
+                width: 40px;
+                height: 35px;
+                display: block;
+                z-index: 10;
+                span,
+                &::after,
+                &::before {
+                    height: 3px;
+                    width: 100%;
+                    position: absolute;
+                    background: $white;
+                    margin: 0 auto;
+                }
+                span{
+                    top: 16px;
+                }
+                &::after,
+                &::before{
+                    content: '';
+                }
+                &::after{
+                    bottom: 5px;
+                }
+                &::before{
+                    top: 5px;
+                }
+            }
+            &__menu {
+                display: none;
+                height: 100vh;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+
+        .navigation {
+            &__logo {
+                font-size: 22px;
+            }
+            &__buttons {
+                display: block;
+                position: absolute;
+                right: 0;
+                padding-top: 100px;
+                background: $burger-menu-bg;
+                text-align: end;
+                width: 240px;
+                height: 100vh;
+                animation: popUpBurger 0.5s;
+                li {
+                    padding-right: 20px;
+                    &:last-child {
+                        padding-right: 20px;
+                    }
+                    font-size: 18px;
+                    height: 35px;
+                }
+            }
+        }
+
+    }
+}
+
+@keyframes popUpBurger {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
