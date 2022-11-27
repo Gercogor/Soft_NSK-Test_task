@@ -14,12 +14,8 @@ const devServer = (isDev) => !isDev ? {} : {
 module.exports = ({develop}) => ({
   mode: develop ? 'development' : 'production',
   entry: './src/index.js',
-//   entry: {
-//     index: './src/index.js',
-//     scripts: './src/scripts.js',
-//   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     clean: true,
   },
